@@ -21,7 +21,7 @@ export default function ShoppingCart() {
   const fetchCart = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5000/api/cart");
+      const response = await axios.get("https://product-card-backend-1.onrender.com/api/cart");
       console.log(response.data); 
       setCart(response.data);
       setLoading(false);
@@ -43,7 +43,7 @@ export default function ShoppingCart() {
 
   const updateQuantity = async (productId, quantity) => {
     try {
-      await axios.post("http://localhost:5000/api/cart/update", { productId, quantity });
+      await axios.post("https://product-card-backend-1.onrender.com/api/cart/update", { productId, quantity });
       fetchCart(); 
     } catch (err) {
       console.error("Error updating quantity:", err);
@@ -53,7 +53,7 @@ export default function ShoppingCart() {
 
   const removeProduct = async (productId) => {
     try {
-      await axios.post("http://localhost:5000/api/cart/remove", { productId });
+      await axios.post("https://product-card-backend-1.onrender.com/api/cart/remove", { productId });
       fetchCart(); 
     } catch (err) {
       console.error("Error removing product:", err);
@@ -68,7 +68,7 @@ export default function ShoppingCart() {
       const stripe = await stripePromise;
     
       try {
-        const response = await axios.post("http://localhost:5000/api/cart/checkout");
+        const response = await axios.post("https://product-card-backend-1.onrender.com/api/cart/checkout");
         const { clientSecret } = response.data;
     
         const { error } = await stripe.confirmCardPayment(clientSecret, {

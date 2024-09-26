@@ -46,7 +46,7 @@ export function ProductDetailComponent({
     setAddToCartError('');
   
     try {
-      const response = await fetch('http://localhost:5000/api/cart/add', {
+      const response = await fetch('https://product-card-backend-1.onrender.com/api/cart/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

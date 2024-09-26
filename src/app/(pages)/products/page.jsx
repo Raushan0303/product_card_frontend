@@ -12,7 +12,7 @@ export default function ProductsPage() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch('http://localhost:5000/api/products'); 
+        const response = await fetch('https://product-card-backend-1.onrender.com/api/products'); 
         const data = await response.json();
         setProducts(data); 
         setLoading(false); 
